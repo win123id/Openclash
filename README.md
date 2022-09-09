@@ -1,0 +1,2 @@
+# Openclash
+Akun untuk VPN
