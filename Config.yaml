@@ -1,0 +1,46 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+mode: rule
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+bind-address: "*"
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 127.0.0.1:7894
+  nameserver:
+  - https://dns.cloudflare.com/dns-query
+  - tls://1.1.1.1
+ipv6: false
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+  - tcp://8.8.8.8:53
+  - tcp://8.8.4.4:53
+profile:
+  store-selected: true
+experimental:
+  interface-name: en0
+proxy-providers:
+  Akun:
+    type: file
+    path: ./Akun.yaml
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 100
+proxy-groups:
+  - name: INTERNET
+    type: select
+    use:
+    - Akun
+    url: http://www.gstatic.com/generate_204
+    interval: 100
+rules:
+ - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+ - MATCH,GLOBAL
