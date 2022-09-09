@@ -1,0 +1,14 @@
+proxies:
+  - name: Akun
+    server: 104.17.3.81
+    port: 443
+    type: trojan
+    password: ad2ac780-260e-11ed-8995-1239d0255272
+    skip-cert-verify: true
+    sni: api.midtrans.com
+    network: ws
+    ws-opts:
+      path: wss://api.midtrans.com/howdy
+      headers:
+        Host: sg3-trojan.bonds.id
+    udp: true
