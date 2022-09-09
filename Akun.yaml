@@ -1,5 +1,5 @@
 proxies:
-  - name: "Akun"
+  - name: Akun
     server: 104.17.3.81
     port: 443
     type: trojan
@@ -12,7 +12,7 @@ proxies:
       headers:
         Host: sg3-trojan.bonds.id
     udp: true
-  - name: "ruangguru"
+  - name: ruangguru
     server: 104.18.2.2
     port: 443
     type: trojan
